@@ -24,16 +24,19 @@ def solve(numbers):
     
 
 def main():    
-    line = input()        
-    while line:
-        numbers = line.split(' ')  
-        for i in range(len(numbers)):
-            numbers[i] = int(numbers[i])                                         
-        solve(numbers)
-        try:
-            line = input()
-        except EOFError:
-            break
+    try:
+        line = input()
+        while line:
+            numbers = line.split(' ')  
+            for i in range(len(numbers)):
+                numbers[i] = int(numbers[i])                                         
+            solve(numbers)
+            try:
+                line = input()
+            except EOFError:
+                break
+    except EOFError:
+        print("No lines")   
 
 if __name__ == "__main__":
     main()

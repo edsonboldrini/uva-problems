@@ -28,20 +28,23 @@ def solve(princessCards, princeCards):
 def main():
     princess = []
     prince = []
-    line = input()        
-    while line:
-        cards = line.replace('\n','').split(' ')
-        if(cards == ['0','0','0','0','0']):
-            break
-        for i in range(len(cards)):
-            cards[i] = int(cards[i])            
-        princess = cards[:3]
-        prince = cards[3:]                                    
-        solve(princess, prince)
-        try:
-            line = input()
-        except EOFError:
-            break
+    try:
+        line = input()
+        while line:
+            cards = line.replace('\n','').split(' ')
+            if(cards == ['0','0','0','0','0']):
+                break
+            for i in range(len(cards)):
+                cards[i] = int(cards[i])            
+            princess = cards[:3]
+            prince = cards[3:]                                    
+            solve(princess, prince)
+            try:
+                line = input()
+            except EOFError:
+                break
+    except EOFError:
+        print("No lines")           
 
 
 if __name__ == "__main__":
