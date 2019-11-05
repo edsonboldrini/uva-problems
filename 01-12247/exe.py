@@ -38,7 +38,10 @@ def main():
         princess = cards[:3]
         prince = cards[3:]                                    
         solve(princess, prince)
-        line = input()
+        try:
+            line = input()
+        except EOFError:
+            break
 
 
 if __name__ == "__main__":
