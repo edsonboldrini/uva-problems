@@ -5,21 +5,22 @@ def solve(charactersCost, charactersList):
             price += charactersCost[c]
     finalCost = str(round(price, 2)).split('.')
     if(len(finalCost[1]) == 1):
-        completeZero = finalCost[1].ljust(2, '0')        
+        completeZero = finalCost[1].ljust(2, '0')
         finalCost.pop(1)
-        finalCost.append('.') 
-        finalCost.append(completeZero) 
+        finalCost.append('.')
+        finalCost.append(completeZero)
         finalCost = ''.join(finalCost)
         print(finalCost+'$')
     else:
         print(str(round(price, 2))+'$')
 
-def main():    
+
+def main():
     try:
         line = input()
         numberOfTests = int(line)
         # print(numberOfTests)
-        for i in range(numberOfTests):            
+        for i in range(numberOfTests):
             try:
                 line = input()
                 numberOfPaidCharacters = int(line)
@@ -50,9 +51,10 @@ def main():
                 except EOFError:
                     break
             except EOFError:
-                break            
+                break
     except EOFError:
-        print("No lines")  
+        print("No lines")
+
 
 if __name__ == "__main__":
     main()
