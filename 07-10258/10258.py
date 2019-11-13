@@ -1,26 +1,35 @@
 from operator import itemgetter
 
 def solve(submissions):
+    correctSubmissions = {}
     contestants = {}
-    # for s in submissions:        
+    submissions = sorted(submissions, key=itemgetter(3))
     for s in submissions:
         result = s[3]
         contestant = s[0]
         if (result in ["C", "I"]):
+            submissionData = (contestant, s[1])
             if (result == "C"):
-                if(contestant not in contestants):
-                    contestants[contestant] = [int(contestant), 1, int(s[2])]
-                else:
-                    contestants[contestant] = [int(contestant), int(contestants[contestant][1])+1, int(contestants[contestant][2])+int(s[2])]
+                if(submissionData not in correctSubmissions):
+                    correctSubmissions[submissionData] = s[2]
+                    if(contestant not in contestants):
+                        contestants[contestant] = [int(contestant), 1, int(s[2])]                        
+                    else:
+                        contestants[contestant] = [int(contestant), int(contestants[contestant][1])+1, int(contestants[contestant][2])+int(s[2])]
             else:
-                if(contestant not in contestants):
-                    contestants[contestant] = [int(contestant), 0, 20]
+                if(submissionData in correctSubmissions):    
+                    if(contestant not in contestants):
+                        contestants[contestant] = [int(contestant), 0, 20]
+                    else:
+                        contestants[contestant] = [int(contestant), int(contestants[contestant][1]), int(contestants[contestant][2])+20]
                 else:
-                    contestants[contestant] = [int(contestant), int(contestants[contestant][1]), int(contestants[contestant][2])+20]
+                    if(contestant not in contestants):
+                        contestants[contestant] = [int(contestant), 0, 0]
         else:
             if(contestant not in contestants):
                     contestants[contestant] = [int(contestant), 0, 0]
 
+    # print(validSubmissions)
     contestants = [v for v in contestants.values()]
     contestants = sorted(contestants, key=itemgetter(0))
     contestants = sorted(contestants, key=itemgetter(2))
