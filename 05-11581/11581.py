@@ -1,13 +1,15 @@
-dx = [ 1, -1, 0, 0 ]
-dy = [ 0, 0, -1, 1 ]
- 
+dx = [1, -1, 0, 0]
+dy = [0, 0, -1, 1]
+
+
 def check(x, y):
     return x >= 0 and x < 3 and y >= 0 and y < 3
 
+
 def solve(firstLine, secondLine, thirdLine):
     response = -1
-    if(not (firstLine == "000" and secondLine == "000" and thirdLine == "000")):    
-        grid = []        
+    if(not (firstLine == "000" and secondLine == "000" and thirdLine == "000")):
+        grid = []
         f = []
         s = []
         t = []
@@ -40,16 +42,15 @@ def solve(firstLine, secondLine, thirdLine):
                     count = 0
                     for m in range(len(dy)):
                         if (check(i + dx[m], j + dy[m])):
-                            count += grid[i + dx[m]][j + dy[m]]                                                            
+                            count += grid[i + dx[m]][j + dy[m]]
                     newGrid[i][j] = count % 2
-                                
+
             response += 1
             for i in range(len(grid)):
                 for j in range(len(grid)):
                     grid[i][j] = newGrid[i][j]
 
-    print(response)            
-                
+    print(response)
 
 
 def main():
