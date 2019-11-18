@@ -1,8 +1,8 @@
-def solve(numberOfDimensions ,weights):
+def solve(numberOfDimensions, weights):
     potencies = {}
     for w in weights:
         acc = 0
-        for i in range(len(w)):             
+        for i in range(len(w)):
             if (w[i] == '0'):
                 neighbour = w[:i] + '1' + w[i + 1:]
             elif(w[i] == '1'):
@@ -16,11 +16,10 @@ def solve(numberOfDimensions ,weights):
                 neighbour = p[:i] + '1' + p[i + 1:]
             elif(p[i] == '1'):
                 neighbour = p[:i] + '0' + p[i + 1:]
-            neighbouringPotency = potencies[p] + potencies[neighbour]            
+            neighbouringPotency = potencies[p] + potencies[neighbour]
             if(neighbouringPotency > maxPotency):
                 maxPotency = neighbouringPotency
-    print(maxPotency)        
-    
+    print(maxPotency)
 
 
 def main():
@@ -30,10 +29,11 @@ def main():
         while(line != ""):
             try:
                 weights = {}
-                for i in range(2**numberOfDimensions):                
+                for i in range(2**numberOfDimensions):
                     try:
                         line = input()
-                        weights[(bin(i).replace('0b','')).rjust(numberOfDimensions,'0')] = int(line)                    
+                        weights[(bin(i).replace('0b', '')).rjust(
+                            numberOfDimensions, '0')] = int(line)
                     except EOFError:
                         break
                 solve(numberOfDimensions, weights)
