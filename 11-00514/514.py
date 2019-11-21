@@ -1,22 +1,42 @@
-def solve(A, B):
-    print(A)
-    print(B)
+def solve(N, cars):
+    stack = []
+
+    while(len(stack) > 0):
+        stack.pop()
+    j = 0
+    for i in range(N):   
+        c = cars[i]
+        if(c == 0):
+            break
+
+        while(j < N and j != c):
+            if(len(stack) > 0 and stack[-1] == c): 
+                break
+            j+=1
+            stack.append(j)
+        if(len(stack) > 0 and stack[-1] == c):
+            stack.pop()
+    if(len(stack) == 0):
+        print("Yes")
+    else:
+        print("No")
+    
 
 def main():
     try:
         line = input()
         while(line != "0"):
             try:
-                A = int(line)
-                B = []
+                N = int(line)
+                cars = []
                 line = input()
                 while(line != "0"):
                     try:
-                        B.append([int(i) for i in line.split(" ")])
+                        cars = [int(i) for i in line.split(" ")]
+                        solve(N, cars)
                         line = input()
                     except EOFError:
-                        break
-                solve(A, B)
+                        break                
                 print("")
                 line = input()
             except EOFError:
