@@ -1,3 +1,7 @@
+# Problem: UVA 11988 - Broken Keyboard (a.k.a. Beiju Text)
+# Author(s): Edson Boldrini
+
+
 def solve(sentence):
     resultSentence = ""
     cursor = len(resultSentence)
@@ -10,7 +14,8 @@ def solve(sentence):
             if (cursor == 0):
                 resultSentence = c + resultSentence
             elif (cursor > 0 and cursor < len(resultSentence)):
-                resultSentence = resultSentence[:cursor] + c + resultSentence[cursor:]
+                resultSentence = resultSentence[:cursor] + \
+                    c + resultSentence[cursor:]
             elif (cursor == len(resultSentence)):
                 resultSentence = resultSentence + c
             cursor += 1

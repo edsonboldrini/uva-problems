@@ -1,3 +1,7 @@
+# Problem: UVA 1062 - Containers
+# Author(s): Edson Boldrini
+
+
 def solve(containers):
     stacks = []
     for c in containers:

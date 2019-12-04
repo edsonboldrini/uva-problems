@@ -1,3 +1,7 @@
+# Problem: UVA 10264 - The Most Potent Corner
+# Author(s): Edson Boldrini
+
+
 def solve(numberOfDimensions, weights):
     potencies = {}
     for w in weights:

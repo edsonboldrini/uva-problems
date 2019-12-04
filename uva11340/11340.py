@@ -1,3 +1,7 @@
+# Problem: UVA 11340 - Newspaper
+# Author(s): Edson Boldrini
+
+
 def solve(charactersCost, charactersList):
     price = 0.0
     for c in charactersList:

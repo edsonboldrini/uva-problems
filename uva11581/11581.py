@@ -1,3 +1,6 @@
+# Problem: UVA 11581 - Grid Successors
+# Author(s): Edson Boldrini
+
 dx = [1, -1, 0, 0]
 dy = [0, 0, -1, 1]
 

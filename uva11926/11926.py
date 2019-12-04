@@ -1,3 +1,7 @@
+# Problem: UVA 11926 - Multitasking
+# Author(s): Edson Boldrini
+
+
 def solve(oneTimeTasks, repeatingTasks):
     for rt in repeatingTasks:
         start = int(rt.split(" ")[0])
@@ -20,7 +24,7 @@ def solve(oneTimeTasks, repeatingTasks):
         if (not conflict):
             tasksDone.append((start, end))
         else:
-            break        
+            break
 
     if(conflict):
         print("CONFLICT")

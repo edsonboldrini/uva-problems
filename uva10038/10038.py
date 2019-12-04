@@ -1,4 +1,8 @@
+# Problem: UVA 10038 - Jolly Jumpers
+# Author(s): Edson Boldrini
+
 import math
+
 
 def solve(numbers):
     differences = []
@@ -6,12 +10,12 @@ def solve(numbers):
         print("Jolly")
     else:
         for i in range(1, len(numbers)-1):
-            candidate = abs(numbers[i]-numbers[i+1])                       
-            differences.append(candidate)                                     
-        allowedDifferences = [i for i in range(1,numbers[0])]        
+            candidate = abs(numbers[i]-numbers[i+1])
+            differences.append(candidate)
+        allowedDifferences = [i for i in range(1, numbers[0])]
         jolly = True
         if(0 not in differences):
-            for j in allowedDifferences:                
+            for j in allowedDifferences:
                 if (j not in differences):
                     jolly = False
                     break
@@ -21,22 +25,23 @@ def solve(numbers):
                 print("Not jolly")
         else:
             print("Not jolly")
-    
 
-def main():    
+
+def main():
     try:
         line = input()
         while line:
-            numbers = line.split(' ')  
+            numbers = line.split(' ')
             for i in range(len(numbers)):
-                numbers[i] = int(numbers[i])                                         
+                numbers[i] = int(numbers[i])
             solve(numbers)
             try:
                 line = input()
             except EOFError:
                 break
     except EOFError:
-        print("No lines")   
+        print("No lines")
+
 
 if __name__ == "__main__":
     main()

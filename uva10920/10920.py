@@ -1,3 +1,6 @@
+# Problem: UVA 10920 - Spiral Tap
+# Author(s): Edson Boldrini
+
 import math
 
 

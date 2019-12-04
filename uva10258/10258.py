@@ -1,3 +1,6 @@
+# Problem: UVA 10258 - Contest Scoreboard
+# Author(s): Edson Boldrini
+
 from operator import itemgetter
 
 
@@ -44,7 +47,6 @@ def solve(submissions):
 
     for c in contestants:
         print(c[0], c[1], c[2])
-    
 
 
 def main():
@@ -60,9 +62,9 @@ def main():
                     submissions.append(line.split(' '))
                     line = input()
                 except EOFError:
-                    break            
+                    break
             solve(submissions)
-            if (i != numberOfTests -1):
+            if (i != numberOfTests - 1):
                 print("")
     except EOFError:
         print("No lines")
