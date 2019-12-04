@@ -25,8 +25,7 @@ def solve(princessCards, princeCards):
     if (n > 52):
         n = -1
 
-    print(n)
-    # print("---")
+    print(n)    
 
 
 def main():
